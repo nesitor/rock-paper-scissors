@@ -1,6 +1,7 @@
 <template>
   <div>
-    <span v-if="selected">Human Option Selected: {{ selected.name }}</span>
+    <h4>You selected: </h4>
+    <Throwing v-if="selected" :throwing="selected"></Throwing>
   </div>
 </template>
 
@@ -8,8 +9,11 @@
 import { Component } from 'vue-property-decorator';
 import Player from '@/components/Player/Player.vue';
 import { Rock } from '@/models/rock';
+import Throwing from '@/components/Player/Throwing.vue';
 
-@Component
+@Component({
+  components: { Throwing }
+})
 export default class HumanPlayer extends Player {
   mounted() {
     this.selected = new Rock();

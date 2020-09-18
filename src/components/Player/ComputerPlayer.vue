@@ -1,14 +1,18 @@
 <template>
   <div>
-    <span v-if="selected">Computer Option Selected: {{ selected.name }}</span>
+    <h4>Computer selected: </h4>
+    <Throwing v-if="selected" :throwing="selected"></Throwing>
   </div>
 </template>
 
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
 import Player from '@/components/Player/Player.vue';
+import Throwing from '@/components/Player/Throwing.vue';
 
-@Component
+@Component({
+  components: { Throwing }
+})
 export default class ComputerPlayer extends Player {
   mounted() {
     const random = Player.getRandomOption();
