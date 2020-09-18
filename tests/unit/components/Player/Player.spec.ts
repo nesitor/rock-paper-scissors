@@ -1,12 +1,14 @@
 import { shallowMount } from '@vue/test-utils';
 import Player from "@/components/Player/Player.vue";
+import {Rock} from "@/models/rock";
 
 describe('Player.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message';
+  it('renders text when passed selected option', () => {
+    const selected = new Rock();
+    const text = 'Option Selected: Rock';
     const wrapper = shallowMount(Player, {
-      propsData: { msg },
+      data() { return { selected: selected } },
     });
-    expect(wrapper.text()).toMatch(msg);
+    expect(wrapper.text()).toMatch(text);
   });
 });

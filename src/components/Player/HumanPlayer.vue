@@ -1,26 +1,28 @@
 <template>
   <div>
-    <h4>You selected: </h4>
-    <Throwing v-if="selected" :throwing="selected"></Throwing>
+    <div v-if="!selected" class="options">
+      <OptionList @option-selected="optionSelected" :options="options"></OptionList>
+    </div>
+    <div v-if="selected" class="selected">
+      <h4>You selected: </h4>
+      <Throwing v-if="selected" :throwing="selected"></Throwing>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
 import Player from '@/components/Player/Player.vue';
-import { Rock } from '@/models/rock';
 import Throwing from '@/components/Player/Throwing.vue';
+import OptionList from "@/components/Player/OptionList.vue";
+import { Throw } from '@/models/throw';
 
 @Component({
-  components: { Throwing }
+  components: {OptionList, Throwing }
 })
 export default class HumanPlayer extends Player {
-  mounted() {
-    this.selected = new Rock();
-    this.$emit('selected-option', this.selected);
-  }
-
-  selectOption() {
+  optionSelected(option: Throw) {
+    this.selected = option;
     this.$emit('selected-option', this.selected);
   }
 }

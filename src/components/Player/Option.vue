@@ -1,18 +1,22 @@
 <template>
-  <div>
-    <div class="option">
-      <fa-icon :icon="['far', throwing.icon]" class="throwing-icon"></fa-icon> {{ throwing.name }}
-    </div>
-  </div>
+  <li class="option" @click="select(throwing)">
+    <Throwing :throwing="throwing"></Throwing>
+  </li>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Throw } from '@/models/throw';
-
-@Component
+import Throwing from "@/components/Player/Throwing.vue";
+@Component({
+  components: {Throwing}
+})
 export default class Option extends Vue {
   @Prop() private throwing!: Throw;
+
+  select(throwing: Throw) {
+    this.$emit('click', throwing);
+  }
 }
 </script>
 
@@ -21,8 +25,6 @@ export default class Option extends Vue {
     padding: 25px;
     border: 1px solid lightseagreen;
     margin-bottom: 15px;
-  }
-  .throwing-icon {
-    color: coral;
+    display: block;
   }
 </style>

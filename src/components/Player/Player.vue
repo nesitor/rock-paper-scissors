@@ -5,9 +5,7 @@
 </template>
 
 <script lang="ts">
-import {
-  Component, Emit, Prop, Vue,
-} from 'vue-property-decorator';
+import {  Component, Emit, Vue } from 'vue-property-decorator';
 import { Paper } from '@/models/paper';
 import { Rock } from '@/models/rock';
 import { Scissors } from '@/models/scissors';
@@ -15,8 +13,6 @@ import { Throw } from '@/models/throw';
 
 @Component
 export default class Player extends Vue {
-  @Prop() private type!: string;
-
   public selected: Throw | null = null;
 
   public options = [
@@ -27,7 +23,6 @@ export default class Player extends Vue {
 
   @Emit()
   selectedOption(): Throw | null {
-    console.log('option selected!');
     return this.selected;
   }
 
