@@ -16,7 +16,6 @@ import PlayMenuItem from '@/components/PlayMenu/PlayMenuItem.vue';
   components: { PlayMenuItem },
 })
 export default class PlayMenu extends Vue {
-  @Prop() private msg!: string;
 }
 </script>
 

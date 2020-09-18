@@ -7,7 +7,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class PlayMenuItem extends Vue {
-  @Prop() private type!: string;
+  @Prop({ required: true }) private type!: string;
 
   get title() {
     const type = this.options.find((option) => option.slug === this.type);

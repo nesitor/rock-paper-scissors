@@ -15,7 +15,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Throw } from '@/models/throw';
-import {ThrowResult} from "@/models/result";
+import ThrowResult from "@/models/result";
 
 @Component
 export default class Result extends Vue {
@@ -25,8 +25,7 @@ export default class Result extends Vue {
   result = 'Tie';
 
   mounted() {
-    const result = new ThrowResult(this.playerOne, this.playerTwo);
-    this.result = result.whoWins();
+    this.result = ThrowResult.whoWins(this.playerOne, this.playerTwo);
   }
 }
 </script>

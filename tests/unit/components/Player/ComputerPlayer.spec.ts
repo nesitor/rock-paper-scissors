@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import {Rock} from "@/models/rock";
+
 import ComputerPlayer from "@/components/Player/ComputerPlayer.vue";
 
 describe('ComputerPlayer.vue', () => {
@@ -10,7 +10,6 @@ describe('ComputerPlayer.vue', () => {
   });
 
   it('emit selected option on emit if is passed', async () => {
-    const selected = new Rock();
     const wrapper = shallowMount(ComputerPlayer, {});
     await wrapper.vm.$nextTick();
     expect(wrapper.emitted('selected-option')).toBeTruthy();

@@ -1,25 +1,16 @@
-import {Throw} from "@/models/throw";
+import { Throw } from "@/models/throw";
 
-export class ThrowResult {
-  private readonly playerOne: Throw;
-  private readonly playerTwo: Throw;
-
-  constructor(
-    playerOne: Throw,
-    playerTwo: Throw
-  ) {
-    this.playerOne = playerOne;
-    this.playerTwo = playerTwo;
-  }
-
-  whoWins(): string {
+class ThrowResult {
+  static whoWins(playerOne: Throw, playerTwo: Throw): string {
     let result = 'Tie';
-    if (this.playerTwo.isDefeatedBy(this.playerOne)) {
+    if (playerTwo.isDefeatedBy(playerOne)) {
       result = 'First';
     }
-    if (this.playerOne.isDefeatedBy(this.playerTwo)) {
+    if (playerOne.isDefeatedBy(playerTwo)) {
       result = 'Second';
     }
     return result;
   }
 }
+
+export default ThrowResult;

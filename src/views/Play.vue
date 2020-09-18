@@ -29,11 +29,15 @@ import Result from "@/components/Result/Result.vue";
   },
 })
 export default class Play extends Vue {
-  type = this.$route.params.type;
+  type = '';
   firstThrow: Throw | null = null;
   secondThrow: Throw | null = null;
   haveFirst = false;
   haveResult = false;
+
+  mounted() {
+    this.type = this.$route.params.type;
+  }
 
   getFirstThrow(throwing: Throw) {
     this.firstThrow = throwing;
