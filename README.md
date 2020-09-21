@@ -1,5 +1,14 @@
 # rock-paper-scissors
 
+## Requirements
+
+- NodeJs 12+
+
+## Install dependencies
+```
+npm i -g yarn
+```
+
 ## Project setup
 ```
 yarn install
