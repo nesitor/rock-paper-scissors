@@ -1,5 +1,6 @@
 import { Throw } from '@/models/throw';
 import { Rock } from "@/models/rock";
+import { Spock } from "@/models/spock";
 
 export class Scissors implements Throw {
   throw = 'scissors';
@@ -7,6 +8,6 @@ export class Scissors implements Throw {
   icon = 'hand-scissors';
 
   isDefeatedBy(throwing: Throw): boolean {
-    return throwing instanceof Rock;
+    return throwing instanceof Rock || throwing instanceof Spock;
   }
 }

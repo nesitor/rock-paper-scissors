@@ -10,6 +10,8 @@ import { Paper } from '@/models/paper';
 import { Rock } from '@/models/rock';
 import { Scissors } from '@/models/scissors';
 import { Throw } from '@/models/throw';
+import { Lizard } from "@/models/lizard";
+import { Spock } from "@/models/spock";
 
 @Component
 export default class Player extends Vue {
@@ -19,6 +21,8 @@ export default class Player extends Vue {
     new Rock(),
     new Paper(),
     new Scissors(),
+    new Lizard(),
+    new Spock(),
   ];
 
   @Emit()
