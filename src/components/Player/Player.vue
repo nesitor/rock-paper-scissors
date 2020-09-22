@@ -31,7 +31,7 @@ export default class Player extends Vue {
   }
 
   static getRandomOption(): number {
-    return Math.floor(Math.random() * 3);
+    return Math.floor(Math.random() * 5);
   }
 }
 </script>
